@@ -289,7 +289,7 @@ function resetBulletTickCode() {
     function spawnEnemyLoop() {
         SpawnEnemy();
         enemySpawnRate -= 50;
-        if(enemySpawnRate < 500) enemySpawnRate = 500;
+        if(enemySpawnRate < 300) enemySpawnRate = 300;
 
         setTimeout(() => {
             spawnEnemyLoop();
@@ -321,7 +321,7 @@ function resetBulletTickCode() {
             y: enemyY,
             id: enemyID,
             angle: 0,
-            health: 1
+            health: score > 300 ? 5 : score > 200 ? 3 : score > 100 ? 2 : 1
         };
         enemyElements[enemyID] = enemyElement;
         enemyID++;
