@@ -10,6 +10,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
+function randomFromArray(array) {
+	return array[Math.floor(Math.random() * array.length)];
+}
 function createName() {
   const prefix = randomFromArray([
     "COOL",
