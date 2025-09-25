@@ -22,16 +22,24 @@ function submitScore(score) {
 
 // update leaderboard
 //get top 5
-let topFiveScores = {};
+// Fetch once at beginning
 firebase.database().ref("leaderboard")
     .orderByValue()
     .limitToLast(5)
-    .on("value", (snapshot) => {
+    .once("value")
+    .then(updateLeaderboard);
+
+// Also listen for future updates
+firebase.database().ref("leaderboard")
+    .orderByValue()
+    .limitToLast(5)
+    .on("value", updateLeaderboard);
+
+function updateLeaderboard(snapshot) {
     const data = snapshot.val();
     if (!data) return;
 
-    const scoresArray = Object.entries(data)
-        .sort((a, b) => b[1] - a[1]); // highest first
+    const scoresArray = Object.entries(data).sort((a, b) => b[1] - a[1]);
 
     const list = document.getElementById("leaderboard-list");
     list.innerHTML = "";
@@ -41,4 +49,4 @@ firebase.database().ref("leaderboard")
         li.textContent = `${name} - ${score}`;
         list.appendChild(li);
     });
-});
+}
