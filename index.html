@@ -3,39 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="menu-styles.css">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<title>Coding Club Showcase!</title>
 	</head>
 	<body oncontextmenu="return false;">
-		<div class="game-container">
-            <div id="leftWall"></div>
-            <div id="rightWall"></div>
-            <div id="topWall"></div>
-            <div id="bottomWall"></div>
-        </div>
-
-        <div class="code-inputs">
-            <div class="codebox onshoot-input">
-                <textarea name="On Shoot Input" id="onshoot">
-function OnBulletShoot() {
-    spawnBullet();
-}</textarea>
-            </div>
-            <div class="codebox bullet-tick-input">
-                <textarea name="On Shoot Input" id="bullet-tick">
-function OnBulletTick() {
-    moveBullet();
-}</textarea>
-            </div>
-        </div>
-
-		<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    	<script src="KeyPressListener.js"></script>
-    	<div class="respawn-container">
-			<script type="text/javascript" src="app.js"></script>
+		<h1>Coding Club Showcase</h1>
+		<div id="leftbox">
+			<input type="text" placeholder="Enter Username..." id="username" onchange="updateUsername()" value="">
+			<a href="sologame.html">Solo</a>
+			<a href="pvpgame.html">PvP</a>
 		</div>
+		<div id="rightbox">
+			<div id="leaderboard">
+				<h2>Leaderboard</h2>
+				<ol id="leaderboard-list">
+					<li>P2AH - 220</li>
+					<li>Urmom - 200</li>
+					<li>John - 180</li>
+					<li>Jane - 160</li>
+					<li>Doe - 140</li>
+					<li>Player6 - 120</li>
+				</ol>
+			</div>
+		</div>
+		<script src="main.js"></script>
 	</body>
 </html>

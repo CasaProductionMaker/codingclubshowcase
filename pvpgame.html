@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Coding Club Showcase!</title>
+	</head>
+	<body oncontextmenu="return false;">
+		<div class="game-container">
+            <div id="leftWall"></div>
+            <div id="rightWall"></div>
+            <div id="topWall"></div>
+            <div id="bottomWall"></div>
+        </div>
+
+        <div class="code-inputs">
+            <div class="codebox onshoot-input">
+				<div class="resetButton" onclick="resetMousePressCode()"></div>
+				<h2>function OnMousePress() {</h2>
+                <textarea name="On Shoot Input" id="onshoot">
+  let p = players[playerId];
+  SpawnBullet(p.x, p.y, p.angle);
+</textarea>
+				<h2>}</h2>
+            </div>
+            <div class="codebox bullet-tick-input">
+				<div class="resetButton" onclick="resetBulletTickCode()"></div>
+				<h2>function OnBulletTick(bulletID) {</h2>
+                <textarea name="Bullet Tick Input" id="ontick">
+  MoveBulletInDegreeAngle(bulletID, bullets[bulletID].angle, 20);
+
+  BulletCollideWithEnemies(bulletID);
+</textarea>
+				<h2>}</h2>
+            </div>
+        </div>
+
+		<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    	<script src="KeyPressListener.js"></script>
+    	<div class="respawn-container">
+			<script type="text/javascript" src="pvpapp.js"></script>
+		</div>
+	</body>
+</html>

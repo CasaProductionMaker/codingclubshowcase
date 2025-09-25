@@ -1,0 +1,1 @@
+document.querySelector("#scoreinfo").innerText = "Score: " + localStorage.getItem("CCDScore");
