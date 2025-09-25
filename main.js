@@ -10,7 +10,60 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
+function createName() {
+  const prefix = randomFromArray([
+    "COOL",
+    "SUPER",
+    "HIP",
+    "SMUG",
+    "SILKY",
+    "GOOD",
+    "SAFE",
+    "DEAR",
+    "DAMP",
+    "WARM",
+    "RICH",
+    "LONG",
+    "DARK",
+    "SOFT",
+    "BUFF",
+    "DOPE",
+    "UNCOOL",
+    "GODLY",
+    "OP",
+    "POOR",
+    "THE",
+  ]);
+  const animal = randomFromArray([
+    "BEAR",
+    "DOG",
+    "CAT",
+    "FOX",
+    "LAMB",
+    "LION",
+    "BOAR",
+    "GOAT",
+    "VOLE",
+    "SEAL",
+    "PUMA",
+    "MULE",
+    "BULL",
+    "BIRD",
+    "BUG",
+    "MONKEY",
+    "DRAGON",
+    "ANT",
+    "SNAKE",
+  ]);
+  return `${prefix} ${animal}`;
+}
+
 document.querySelector("#username").value = localStorage.getItem("CCDName") || "";
+if (localStorage.getItem("CCDName") == null) {
+    let newuser = createName();
+    document.querySelector("#username").value = newuser;
+    localStorage.setItem("CCDName", newuser);
+}
 
 function updateUsername() {
     localStorage.setItem('CCDName', document.querySelector("#username").value);
